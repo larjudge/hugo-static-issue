@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>
+      Tags
+    </title>
+    
+
+
+
+
+
+  
+  
+
+<link
+  href="/styles/screen.min.d40c5db3345629849450f3a3cce6c09e5e08993d0bfcfc9173780e63d6942554.css"
+  rel="stylesheet"
+  media="screen"
+  integrity="sha256-1AxdszRWKYSUUPOjzObAnl4ImT0L/PyRc3gOY9aUJVQ=" />
+<link
+  href="/styles/print.min.f6915ad2d683ad008234c9d36acba438806dbe2e53e128c41a2554d57f251bdd.css"
+  rel="stylesheet"
+  media="print"
+  integrity="sha256-9pFa0taDrQCCNMnTasukOIBtvi5T4SjEGiVU1X8lG90=" />
+
+    
+
+
+
+
+  
+
+<script
+  src="/js/index.9efde7ff39a11b8d4a8c2f5486ed25466c01c29c040c7d142249710a9b888c28.js"
+  integrity="sha256-nv3n/zmhG41KjC9Uhu0lRmwBwpwEDH0UIklxCpuIjCg="
+  defer></script>
+
+    
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="index" x-data="{ navOpen: false }" x-cloak>
+    <a
+      href="#"
+      id="nav-button"
+      @click="navOpen = !navOpen"
+      :class="{'open': navOpen }">
+      <span>
+        NAV
+        <img src="/images/navbar.png" />
+      </span>
+    </a>
+    <div class="toc-wrapper" :class="{'open': navOpen }">
+      
+      <img src="/images/logo.png" class="logo" />
+
+      
+      
+  
+  
+    
+  
+  <ul
+    id="toc"
+    class="toc-list-h1"
+    x-data="tocController"
+    x-init="load([{&#34;id&#34;:&#34;introduction&#34;,&#34;level&#34;:1,&#34;sub&#34;:[],&#34;title&#34;:&#34;Introduction&#34;},{&#34;id&#34;:&#34;authentication&#34;,&#34;level&#34;:1,&#34;sub&#34;:[{&#34;sub&#34;:[]}],&#34;title&#34;:&#34;Authentication&#34;}])"
+    @scroll.window="onScroll()">
+    
+    <template x-for="row in rows">
+      <li>
+        <a
+          x-text="row.title"
+          @click="click(row)"
+          :href="`#${row.id}`"
+          class="toc-link"
+          x-bind="rowClass(row)"></a>
+        
+          <ul x-show="row.open" x-bind="transitions()" class="da-toc-list-h2">
+            <template x-for="row in row.sub">
+              <li>
+                <a
+                  x-text="row.title"
+                  @click="click(row)"
+                  :href="`#${row.id}`"
+                  class="toc-link"
+                  x-bind="rowClass(row)"></a>
+                
+              </li>
+            </template>
+          </ul>
+        
+      </li>
+    </template>
+  </ul>
+
+      
+      
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+  
+    
+  
+  
+    
+
+
+
+
+
+<h1 id="introduction">Introduction</h1>
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p><strong>This example API documentation page was created with <a href="https://github.com/bep/docuapi/">DocuAPI</a>, a multilingual documentation theme for the static site generator <a href="http://gohugo.io/">Hugo</a>.</strong></p>
+
+
+
+
+  
+
+
+
+<h1 id="authentication">Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/bep/kittn/auth&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">api</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">Authorize</span>(<span style="color:#e6db74">&#34;meowmeowmeow&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Just to make it compile
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">api</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;kittn&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>api <span style="color:#f92672">=</span> <span style="color:#66d9ef">Kittn</span><span style="color:#f92672">::</span><span style="color:#66d9ef">APIClient</span><span style="color:#f92672">.</span>authorize!(<span style="color:#e6db74">&#39;meowmeowmeow&#39;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> kittn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>api <span style="color:#f92672">=</span> kittn<span style="color:#f92672">.</span>authorize(<span style="color:#e6db74">&#39;meowmeowmeow&#39;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># With shell, you can just pass the correct header with each request</span>
+</span></span><span style="display:flex;"><span>curl <span style="color:#e6db74">&#34;api_endpoint_here&#34;</span>
+</span></span><span style="display:flex;"><span>  -H <span style="color:#e6db74">&#34;Authorization: meowmeowmeow&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">kittn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;kittn&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">api</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">kittn</span>.<span style="color:#a6e22e">authorize</span>(<span style="color:#e6db74">&#39;meowmeowmeow&#39;</span>);
+</span></span></code></pre></div><blockquote>
+<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+</blockquote>
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p><code>Authorization: meowmeowmeow</code></p>
+<!-- raw HTML omitted -->
+
+  
+
+      </div>
+      <div class="dark-box">
+        
+      </div>
+    </div>
+    
+  </body>
+</html>
